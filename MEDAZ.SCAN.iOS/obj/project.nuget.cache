@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "TSU13KJPRz4O4cCcb6jTd77eQ2EksYOdN2DdxzEPDMaY04qS7qcx17eYaTyY9FbWhKPvzy5w7kz3Xqxwa9hoyg==",
+  "success": true,
+  "projectFilePath": "D:\\1. Project C#\\ConferenceCheck\\MEDAZ.SCAN\\MEDAZ.SCAN.iOS\\MEDAZ.SCAN.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\son.nt\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\son.nt\\.nuget\\packages\\plugin.toast\\2.2.0\\plugin.toast.2.2.0.nupkg.sha512",
+    "C:\\Users\\son.nt\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\son.nt\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\son.nt\\.nuget\\packages\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512",
+    "C:\\Users\\son.nt\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512",
+    "C:\\Users\\son.nt\\.nuget\\packages\\zxing.net.mobile.forms\\2.4.1\\zxing.net.mobile.forms.2.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}

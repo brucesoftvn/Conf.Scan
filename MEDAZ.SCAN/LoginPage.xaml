@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEDAZ.SCAN.LoginPage" Title="PHẦN MỀM KIỂM KÊ">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" >
+            <Image HorizontalOptions="Center" WidthRequest="200" Source="https://borlabs.io/wp-content/uploads/2019/09/blog-wp-login.png" />
+            <Frame BackgroundColor="AliceBlue" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Tài khoản"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="Black"  />
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Mật khẩu"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="Black"/>
+                    <Picker Title="Chọn kho" x:Name="pickedKho" SelectedIndexChanged="OnPickerSelectedIndexChanged" Focused="pickedKho_Focused" TextColor="Black">
+                    </Picker>
+                </StackLayout>
+            </Frame>
+            <Button Command="{Binding SubmitCommand}" Text="ĐĂNG NHẬP" TextColor="White"  x:Name="login"
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" Clicked="OnNavigateButtonClicked" />
+            <Label x:Name="lblCopyright" Text="Copyright by SHSoft @2021" HorizontalOptions="Center" TextColor="#ccc" VerticalOptions="EndAndExpand"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

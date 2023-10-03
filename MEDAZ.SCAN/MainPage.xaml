@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEDAZ.SCAN.MainPage" Title="MEDPHARMA">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <AbsoluteLayout>
+                <ActivityIndicator x:Name="activityIndicator"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       Color="Blue"  
+                       BackgroundColor="Transparent"/>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+    <Grid RowSpacing="0" ColumnSpacing="0" x:Name="grvInfo">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="lblTitle" Text="CHECK-IN" FontSize="Title" FontAttributes="Bold" Padding="5" Grid.Column="0" Grid.Row="0"  VerticalOptions="Center" HorizontalOptions="Center" Grid.ColumnSpan="2" TextColor="Red" />
+        
+        <Button x:Name="ButtonScanDefault" BorderWidth="1"  Text="NHẤN ĐỂ QUÉT MÃ"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="CadetBlue" BorderColor="Blue"  />
+
+        <Label x:Name="lblBarCode" Text="Mã khách hàng" Grid.Column="0" Grid.Row="2"  VerticalOptions="Center" HorizontalOptions="Start" />
+        <Editor Text="" x:Name="txtBarCode"  Grid.Column="1" Grid.Row="2" TextChanged="txtBarCode_TextChanged" Keyboard="Numeric" />
+        
+        <Label x:Name="lblTenVT" Text="Họ tên" Grid.Column="0" Grid.Row="3" VerticalOptions="Center"/>
+        <Editor x:Name="txtTenVT" Grid.Column="1" Grid.Row="3" VerticalOptions="Center" TextColor="Black" FontSize="13"/>
+        
+        <Label x:Name="lblSoDienThoai" Text="Điện thoại" Grid.Column="0" Grid.Row="4" VerticalOptions="Center" />
+        <Editor x:Name="txtSoDT" Grid.Column="1" Grid.Row="4" VerticalOptions="Center" TextColor="Black" FontSize="13" />
+
+        <Label x:Name="lblDiaChiH" Text="Địa chỉ" Grid.Column="0" Grid.Row="5" VerticalOptions="Center" />
+        <Editor x:Name="txtDiaChi" Grid.Column="1" Grid.Row="5" VerticalOptions="Center" TextColor="Black" FontSize="13" AutoSize="TextChanges" />
+
+        <Label x:Name="lblNamSinh" Text="DOB" Grid.Column="0" Grid.Row="6" VerticalOptions="Center" />
+        <!--<DatePicker x:Name="txtNamSinh" Grid.Column="1" Grid.Row="6" VerticalOptions="Center" TextColor="Black" FontSize="13" IsEnabled="True" Format="dd/MM/yyyy"/>-->
+        <Editor x:Name="txtNamSinh" Grid.Column="1" Grid.Row="6" VerticalOptions="Center" TextColor="Black" FontSize="13" AutoSize="TextChanges" />
+        
+        <Button x:Name="ButtonDELETE" BorderWidth="1"  Text="THỐNG KÊ"  Grid.Column="0" Grid.Row="7" Padding="2" Clicked="ButtonDELETE_Clicked" IsEnabled="True" BorderColor="Red"/>
+        <Button x:Name="ButtonSave" BorderWidth="1"  Text="CHECK-IN"  Grid.Column="1" Grid.Row="7" Padding="2" BorderColor="Red" />
+        
+        <Grid  RowSpacing="0" ColumnSpacing="0" x:Name="grvSearch" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Editor Text="" x:Name="txtSearch"  Grid.Column="0" Grid.Row="0" />
+            <Button x:Name="btnSearch" BorderWidth="1"  Text="Tìm"  Grid.Column="1" Grid.Row="0" Padding="2" BorderColor="Red" Clicked="btnSearch_Clicked" />
+        </Grid>
+        <Grid  RowSpacing="0" ColumnSpacing="0" x:Name="grvDetails" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Label x:Name="lblMaVachH" Text="Mã KH" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" BackgroundColor="Azure" VerticalOptions="Center"/>
+            <Label x:Name="lblTenVTH" Text="Họ tên" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" BackgroundColor="Azure" VerticalOptions="Center"/>
+            <Label x:Name="lblDiaChi" Text="Địa chỉ" Grid.Column="2" Grid.Row="0" FontAttributes="Bold" BackgroundColor="Azure" VerticalOptions="Center"/>
+            <Label x:Name="lblSoDT" Text="Điện thoại" Grid.Column="3" Grid.Row="0" FontAttributes="Bold" BackgroundColor="Azure" VerticalOptions="Center"/>
+            <Label x:Name="lblTime" Text="Dob" Grid.Column="4" Grid.Row="0" FontAttributes="Bold" BackgroundColor="Azure" VerticalOptions="Center"/>
+        </Grid>
+        
+        <ListView x:Name="ProductsListView" HasUnevenRows="true" ItemsSource="{Binding lstKiemke}" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" BackgroundColor="White" ItemTapped="ProductsListView_ItemTapped" ItemSelected="ProductsListView_ItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="CheckIn" Clicked="Add_Clicked"></MenuItem>
+                            <MenuItem Text="Xóa" Clicked="Delete_Clicked"></MenuItem>
+                            <MenuItem Text="Sửa thông tin" Clicked="Edit_Clicked"></MenuItem>
+                        </ViewCell.ContextActions>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <!--<RowDefinition Height="60"/>-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding MaKH}" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                <Label Grid.Column="1" Text="{Binding Hoten}" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                <Label Grid.Column="2" Text="{Binding Diachi}" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                <Label Grid.Column="3" Text="{Binding DienThoai}" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                <Label Grid.Column="4" Text="{Binding Dob}" TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
